@@ -11,10 +11,10 @@
 
         <div class="container">
             <div class="row navigation">
-              <div class="col-sm-8">
+              <div>
 
               </div>
-              <div class="col-sm-4">
+              <div>
                 <a class="btn btn-primary" href="/auth/login">Login</a>
                 <a class="btn btn-primary" href="/auth/register">Sign Up</a>
               </div>

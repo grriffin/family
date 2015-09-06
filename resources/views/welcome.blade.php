@@ -5,10 +5,10 @@
 @section('content')
   <div id="home">
     <div class="row navigation">
-      <div class="col-xs-8">
+      <div>
 
       </div>
-      <div class="col-xs-4">
+      <div>
         @if (Auth::check())
         <a class="btn btn-primary" href="auth/logout">Logout</a>
         @else
