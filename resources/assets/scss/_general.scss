@@ -20,7 +20,7 @@ textarea {
 
 p {
 
-  @include breakpoint(tablet) {
+  @include breakpoint(laptop) {
     font-size: 2rem;
   }
 }
