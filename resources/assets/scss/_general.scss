@@ -18,6 +18,13 @@ textarea {
   }
 }
 
+p {
+
+  @include breakpoint(phone) {
+    font-size: 2rem;
+  }
+}
+
 .printchat {
   border: 1px solid black;
   padding: 25px;
