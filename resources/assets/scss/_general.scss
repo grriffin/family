@@ -20,8 +20,8 @@ textarea {
 
 p {
 
-  @include breakpoint(phone) {
-    font-size: 2rem;
+  @include breakpoint(tablet) {
+    font-size: 3rem;
   }
 }
 
