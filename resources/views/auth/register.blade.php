@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-sm-5 col-sm-offset-3 auth">
+    <div class="col-xs-5 col-xs-offset-3 auth">
         <form method="POST" action="/auth/register">
             {!! csrf_field() !!}
 

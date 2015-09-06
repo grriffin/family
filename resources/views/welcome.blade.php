@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         @if (Auth::check())
           <h2>Sup {{$user->name}}</h2>
           @if (isset($chats))
