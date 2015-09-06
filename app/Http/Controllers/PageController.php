@@ -31,13 +31,15 @@ class PageController extends Controller
 
         $input = $request->input('message');
         
-        $chat = new Chat;
-        $chat->user_id = $user->id;
-        $chat->name    = $user->name;
-        $chat->message = $input;
-        $chat->save();
+        if (isset($input) && $input !== '') {
+            $chat = new Chat;
+            $chat->user_id = $user->id;
+            $chat->name    = $user->name;
+            $chat->message = $input;
+            $chat->save();
 
-        $chats = Chat::all();
+            $chats = Chat::all();
+        }
 
         return view('welcome', [
             'chats' => $chats,

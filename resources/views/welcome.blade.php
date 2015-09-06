@@ -20,7 +20,7 @@
     <div class="row">
       <div class="col-xs-12 col-md-8 col-md-offset-2">
         @if (Auth::check())
-          <h2>Sup {{$user->name}}</h2>
+          <h2>Welcome {{$user->name}}</h2>
           @if (isset($chats))
             @foreach ($chats as $chat)
               <div class="printchat">
@@ -30,7 +30,7 @@
           @endif
           <form id="chatform" method="POST" action="">
             {!! csrf_field() !!}
-            <textarea name="message" form="chatform"></textarea>
+            <textarea required name="message" form="chatform"></textarea>
             <input type="submit" name="submit" class="btn btn-success">
           </form>
         @else 
