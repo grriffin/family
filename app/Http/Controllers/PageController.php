@@ -46,7 +46,7 @@ class PageController extends Controller
           Mail::send('emails.message', $data, function ($message) {
             $message->from('popechats@campope.com');
 
-            $message->to($user->email);
+            $message->to($data['email']);
 });
         }
         else {
