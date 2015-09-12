@@ -24,8 +24,8 @@ return [
     ],
 
     'ses' => [
-        'key'    => 'AKIAICVAVL5T24I2LQFA',
-        'secret' => 'AsT8BIsYVkXnMfMTSc/H1aM6IMhOeR1sX1JtY+EwUodB',
+        'key'    => env('SES_KEY'),
+        'secret' => env('SES_SECRET'),
         'region' => 'us-east-1',
     ],
 
