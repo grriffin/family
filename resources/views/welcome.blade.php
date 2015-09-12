@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="col-xs-12 col-md-8">
         @if (Auth::check())
           <h2>Welcome {{$user->name}}</h2>
           @if (isset($chats))
@@ -30,11 +30,14 @@
               </div>
             @endforeach
           @endif
-          <form id="chatform" method="POST" action="lol">
-            {!! csrf_field() !!}
-            <textarea required name="message" form="chatform"></textarea>
-            <input type="submit" name="submit" class="btn btn-success">
-          </form>
+      </div>
+      <div class="col-md-4">
+        <p class="message-text">Please post your message here.</p>
+        <form id="chatform" method="POST" action="lol">
+          {!! csrf_field() !!}
+          <textarea required name="message" form="chatform"></textarea>
+          <input type="submit" name="submit" class="btn btn-success">
+        </form>
         @else 
           <p>You are not signed in.</p>
           <h2>Admin Notes From Cam</h2>
@@ -43,4 +46,5 @@
       </div>
     </div>
   </div>
+</div>
 @endsection
