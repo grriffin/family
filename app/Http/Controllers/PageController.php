@@ -31,6 +31,19 @@ class PageController extends Controller
 
         $input = $request->input('message');
         
+        if (strpos($input, '@') !== FALSE) {
+          $test = strstr($input, '@');
+
+          $trim = explode(' ',trim($test));
+
+          $name = substr($trim[0], 1); 
+
+          $user = User::where('name', $name)->first();
+        }
+        else {
+           
+        }
+
         if (isset($input) && $input !== '') {
             $chat = new Chat;
             $chat->user_id = $user->id;
@@ -40,7 +53,7 @@ class PageController extends Controller
 
             $chats = Chat::all();
         }
-
-        return redirect()->action('PageController@index');
+        print_r($user->email);
+        // return redirect()->action('PageController@index')->with('test', $test);
     }
 }

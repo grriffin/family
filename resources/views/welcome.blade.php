@@ -21,6 +21,9 @@
       <div class="col-xs-12 col-md-8">
         @if (Auth::check())
           <h2>Welcome {{$user->name}}</h2>
+          @if (isset($test))
+          <h2>$test</h2>
+          @endif
           @if (isset($chats))
             @foreach ($chats as $chat)
               <div class="printchat">
