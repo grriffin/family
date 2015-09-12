@@ -39,7 +39,9 @@ class PageController extends Controller
 
           $name = substr($trim[0], 1); 
 
-          $data = User::where('name', $name)->first();
+          $temp = User::where('name', $name)->first();
+
+          $data = $temp->toArray();
 
           Mail::send('emails.message', $data, function ($message) {
             $message->from('popechats@campope.com');
