@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Chat;
 use Illuminate\Http\Request;
 use Auth;
+use Mail;
 
 class PageController extends Controller
 {
