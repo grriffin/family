@@ -41,9 +41,6 @@ class PageController extends Controller
             $chats = Chat::all();
         }
 
-        return view('welcome', [
-            'chats' => $chats,
-            'user'  => $user
-        ]);
+        return redirect()->action('PageController@index');
     }
 }
