@@ -41,12 +41,12 @@ class PageController extends Controller
 
           $temp = User::where('name', $name)->first();
 
-          $data = $temp->toArray();
+          $data = array( 'email' => $temp->email);
 
-          Mail::send('emails.message', $data, function ($message) {
+          Mail::send('emails.message', $data, function ($message) use ($data) {
             $message->from('popechats@campope.com');
 
-            $message->to($data['email']);
+            $message->to($user->email);
 });
         }
         else {
