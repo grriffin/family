@@ -44,10 +44,8 @@ class PageController extends Controller
           $data = array( 'email' => $temp->email);
 
           Mail::send('emails.message', $data, function ($message) use ($data) {
-            $message->from('popechats@campope.com');
-
             $message->to($data['email']);
-});
+          });
         }
         else {
            
