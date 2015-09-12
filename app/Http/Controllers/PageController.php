@@ -62,7 +62,7 @@ class PageController extends Controller
 
             $chats = Chat::all();
         }
-        print_r($user->email);
-        // return redirect()->action('PageController@index')->with('test', $test);
+        // print_r($user->email);
+        return redirect()->action('PageController@index');
     }
 }
