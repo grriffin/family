@@ -19,7 +19,7 @@ class PageController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $chats = Chat::all();
+        $chats = Chat::orderBy('created_at', 'desc')->get();
         return view('welcome', [
             'chats' => $chats,
             'user'  => $user
