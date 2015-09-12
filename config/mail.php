@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'username' => 'AKIAI3WVOVQZ2TBTNQ4A',
+    'username' => 'AKIAICVAVL5T24I2LQFA',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'password' => 'Aj7bO9V1eTKAnrMDfxdc6kvE7M7hhu9yKY3RqfuvLxR6',
+    'password' => 'AsT8BIsYVkXnMfMTSc/H1aM6IMhOeR1sX1JtY+EwUodB',
 
     /*
     |--------------------------------------------------------------------------
