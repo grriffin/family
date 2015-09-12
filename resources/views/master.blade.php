@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>App Name - @yield('title')</title>
+        <title>Pope Chats</title>
         <link rel="stylesheet" type="text/css" href="css/app.css">
     </head>
     <body>

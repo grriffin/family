@@ -24,17 +24,21 @@
           @if (isset($chats))
             @foreach ($chats as $chat)
               <div class="printchat">
-                <p>{{ $chat->name }}</p><p>{{ $chat->message }}</p>
+                <p>{{ $chat->name }}</p>
+                <p>{{$chat->created_at}}</p>
+                <p>{{ $chat->message }}</p>
               </div>
             @endforeach
           @endif
-          <form id="chatform" method="POST" action="">
+          <form id="chatform" method="POST" action="lol">
             {!! csrf_field() !!}
             <textarea required name="message" form="chatform"></textarea>
             <input type="submit" name="submit" class="btn btn-success">
           </form>
         @else 
           <p>You are not signed in.</p>
+          <h2>Admin Notes From Cam</h2>
+          <p>Gonna be doing a ton of changes to this pretty quick so don't be alarmed if the interface changes a lot each time you come :)</p>
         @endif
       </div>
     </div>
