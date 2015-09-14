@@ -4,6 +4,47 @@
 
 @section('content')
   <div id="home">
+  <script>
+  
+	var lastChatId = <?php echo $lastChatId ;?>;
+	var lastMissedId = 0;
+
+	function CheckForMessages(id) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'getmissingmessagecount?lastId=' + id);
+		xhr.onload = function() {
+			if ( xhr.status = 200 ) {
+				console.log(xhr.responseText);
+				var response = JSON.parse(xhr.responseText);
+				if ( response.missedMessagesCount > 0 && lastMissedId != response.lastId ) {
+					/*even though we haven't refreshed yet, we only need
+					to update the button when there are more messages. So
+					might as well update the last id now.*/
+					lastMissedId = response.lastId;
+					var mc = document.getElementById("messageCount");
+					while (mc.firstChild) {
+						mc.removeChild(mc.firstChild);
+					}
+					var input = document.createElement("INPUT");
+					input.className = "btn btn-success";
+					input.value = "Load " + response.missedMessagesCount + " more message" + (response.missedMessagesCount > 1 ? "s" : "");
+					input.onclick = function () { window.location.reload(); };
+					mc.appendChild(input);
+					
+					}
+				}
+			else {
+				console.log('Message request failed ' + xhr.status);
+			}
+		};
+		xhr.send();
+	}
+	(function() {
+
+		var timer = setInterval(function() { CheckForMessages(lastChatId) }, 3000);
+		
+	}());
+  </script>
     <div class="row navigation">
       <div>
 
@@ -21,6 +62,9 @@
       <div class="col-xs-12 col-md-8">
         @if (Auth::check())
           <h2>Welcome {{$user->name}}</h2>
+
+		  <div id="messageCount" class="refreshbuttoncontainer" >
+		  </div>
           @if (isset($chats))
             @foreach ($chats as $chat)
               <div class="printchat">

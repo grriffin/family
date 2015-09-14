@@ -8,6 +8,8 @@ use App\Chat;
 use Illuminate\Http\Request;
 use Auth;
 use Mail;
+use Input;
+use Response;
 
 class PageController extends Controller
 {
@@ -21,9 +23,11 @@ class PageController extends Controller
     {
         $user = Auth::user();
         $chats = Chat::orderBy('created_at', 'desc')->get();
+        $lastChatId =  Chat::max('id');
         return view('welcome', [
             'chats' => $chats,
-            'user'  => $user
+            'user'  => $user,
+            'lastChatId' => $lastChatId
         ]);
     }
 
@@ -65,4 +69,19 @@ class PageController extends Controller
         // print_r($user->email);
         return redirect()->action('PageController@index');
     }
+	
+	public function getMissingMessageCount() {
+		
+		$user = Auth::user();
+		$lastId = Input::get('lastId');
+		if (!isset($lastId))
+			$lastId = 0;
+		$missing = Chat::where('id', '>', $lastId)->count();
+		$max = Chat::max('id');
+		//we could just return max Id and let the client figure it out, but it's possible
+		//in the future we'll want to use some other criteria for what was "missed" than just
+		//the gap in ids so I'll return my own count of messages beyond what the user has.
+		return Response::json(array('missedMessagesCount' => $missing, 'lastId' => $max));
+		
+	}
 }
